@@ -28,6 +28,41 @@ Once provisioning is complete, you can access the web server via:
 
 You should see a welcome message: `Welcome to the Web Server!`
 
+## Checking Database Access from Web Server
+To verify database access from the web server, use the following script:
+
+1. SSH into the web server:
+   ```sh
+   vagrant ssh web
+   ```
+
+2. Create and run the script:
+   ```sh
+   echo '#!/bin/bash
+   DB_HOST="192.168.56.11"
+   DB_USER="admin"
+   DB_PASS="admin"
+   DB_NAME="test_db"
+   LOG_FILE="/var/log/db_query.log"
+   QUERY="SELECT * FROM users;"
+
+   sudo touch $LOG_FILE
+   sudo chmod 644 $LOG_FILE
+
+   {
+     echo "[$(date)] Зара буде..."
+     mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" -D "$DB_NAME" -e "$QUERY"
+     echo "[$(date)] Query execution completed"
+   } >> $LOG_FILE 2>&1' > check_db.sh
+   chmod +x check_db.sh
+   ./check_db.sh
+   ```
+
+3. Check the log file for query results:
+   ```sh
+   cat /var/log/db_query.log
+   ```
+
 ## Querying the Database
 1. SSH into the database server:
    ```sh
