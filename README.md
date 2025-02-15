@@ -6,7 +6,7 @@ Ensure you have the following installed on your system:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 ## Setting Up the Environment
-1. Clone the repository (if applicable):
+1. Clone the repository:
    ```sh
    git clone <repository-url>
    cd <repository-folder>
