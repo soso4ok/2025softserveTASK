@@ -8,8 +8,8 @@ Ensure you have the following installed on your system:
 ## Setting Up the Environment
 1. Clone the repository:
    ```sh
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone <https://github.com/soso4ok/2025softserveTASK.git>
+   cd <2025softserveTASK>
    ```
 
 2. Start the Vagrant environment:
